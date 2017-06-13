@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.downunder/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.downunder/">
+
+<xs:element name="ehMinhaVez" type="tns:ehMinhaVez"/>
+
+<xs:element name="ehMinhaVezResponse" type="tns:ehMinhaVezResponse"/>
+
+<xs:element name="encerraPartida" type="tns:encerraPartida"/>
+
+<xs:element name="encerraPartidaResponse" type="tns:encerraPartidaResponse"/>
+
+<xs:element name="obtemOponente" type="tns:obtemOponente"/>
+
+<xs:element name="obtemOponenteResponse" type="tns:obtemOponenteResponse"/>
+
+<xs:element name="obtemTabuleiro" type="tns:obtemTabuleiro"/>
+
+<xs:element name="obtemTabuleiroResponse" type="tns:obtemTabuleiroResponse"/>
+
+<xs:element name="preRegistro" type="tns:preRegistro"/>
+
+<xs:element name="preRegistroResponse" type="tns:preRegistroResponse"/>
+
+<xs:element name="registraJogador" type="tns:registraJogador"/>
+
+<xs:element name="registraJogadorResponse" type="tns:registraJogadorResponse"/>
+
+<xs:element name="soltaEsfera" type="tns:soltaEsfera"/>
+
+<xs:element name="soltaEsferaResponse" type="tns:soltaEsferaResponse"/>
+
+<xs:element name="temPartida" type="tns:temPartida"/>
+
+<xs:element name="temPartidaResponse" type="tns:temPartidaResponse"/>
+
+<xs:complexType name="ehMinhaVez">
+<xs:sequence>
+<xs:element name="idJogador" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="ehMinhaVezResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registraJogador">
+<xs:sequence>
+<xs:element name="nomeJogador" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="registraJogadorResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="temPartida">
+<xs:sequence>
+<xs:element name="idJogador" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="temPartidaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="encerraPartida">
+<xs:sequence>
+<xs:element name="idJogador" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="encerraPartidaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtemOponente">
+<xs:sequence>
+<xs:element name="idJogador" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtemOponenteResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="preRegistro">
+<xs:sequence>
+<xs:element name="nomeJogador1" type="xs:string" minOccurs="0"/>
+<xs:element name="idJogador1" type="xs:int"/>
+<xs:element name="nomeJogador2" type="xs:string" minOccurs="0"/>
+<xs:element name="idJogador2" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="preRegistroResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="soltaEsfera">
+<xs:sequence>
+<xs:element name="idJogador" type="xs:int"/>
+<xs:element name="orificio" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="soltaEsferaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtemTabuleiro">
+<xs:sequence>
+<xs:element name="idJogador" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="obtemTabuleiroResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
