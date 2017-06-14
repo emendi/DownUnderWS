@@ -95,7 +95,7 @@ public class DownUnderWS {
      */
     @WebMethod(operationName = "obtemOponente")
     public String obtemOponente(@WebParam(name = "idJogador") int idJogador) throws RemoteException {
-        //TODO write your implementation code here: 
+        //TODO write your implementation code here:
         return du.obtemOponente(idJogador);
     }
     
