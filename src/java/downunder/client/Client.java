@@ -18,7 +18,7 @@ import java.util.Scanner;
  *
  * @author roland
  */
-public class DownUnderWSClientWithValidation {
+public class Client {
 
     private static DownUnderWS_Service service;
     private static DownUnderWS port;
@@ -28,15 +28,13 @@ public class DownUnderWSClientWithValidation {
      * @throws java.io.IOException
      */
     public static void main(String[] args) throws IOException {
-        String fileName = args[0];
-        
-        executaTeste("C:\\Users\\eduardo\\Documents\\NetBeansProjects\\DownUnderWS\\test\\" + fileName);
+        executaTeste("C:\\Users\\Eduardo_Mendiccelli\\Documents\\NetBeans Projects\\DownUnderWS\\test\\DownUnder-1000");
     }
 
     private static void executaTeste(String rad) throws IOException {
         service = new DownUnderWS_Service();
         port = service.getDownUnderWSPort();
-        
+
         String inFile = rad+".in";
         FileInputStream is = new FileInputStream(new File(inFile));
         System.setIn(is);
@@ -107,38 +105,7 @@ public class DownUnderWSClientWithValidation {
             System.out.println("... terminado!");
             out.close();
             leitura.close();
-            executaValidacao(rad);
         }
-    }
-    
-    private static void executaValidacao(String rad) throws IOException {
-        int count_matches = 0;
-        int count_lines = 0;
-        
-        try {
-            File expectedFile = new File(rad + ".res");
-            File outputFile = new File(rad + ".out");
-
-            FileInputStream is_expectedFile = new FileInputStream(expectedFile);
-            FileInputStream is_outputFile = new FileInputStream(outputFile);
-
-            Scanner s_expectedFile = new Scanner(is_expectedFile);
-            Scanner s_outputFile = new Scanner(is_outputFile);
-
-            while (s_expectedFile.hasNextLine()) {
-                if (s_expectedFile.nextLine().equals(s_outputFile.nextLine())) {
-                    count_matches++;
-                }
-                count_lines++;
-            }
-            
-            s_expectedFile.close();
-            s_outputFile.close();
-        } catch (Exception e) {
-            System.out.println("Ops... Erro ao tentar efetuar a validacao do arquivo de saida. Verifique o arquivo manualmente.");
-            return;
-        }
-        System.out.println("Validacao completa. Linhas com resultado igual ao esperado: " + count_matches + "/" + count_lines + " (" + (((float)count_matches/count_lines)*100) + "%).");
     }
     
     private static void erro(String arq,int operacao) {

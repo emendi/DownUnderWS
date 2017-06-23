@@ -106,8 +106,10 @@ public class Jogo {
         // Trata os casos em que o jogador foi pre-registrado
         for (Partida p : partidasPreRegistro) {
             if (p.getJogador1().getId() == idJogador) {             // Jogador foi pre-registrado e eh o jogador 1
-                partidas.add(new Partida(getJogador(idJogador)));   // Jogador inicia com esferas claras
-                return 0;
+                if (partidas.size() < qtdPartidas) {
+                    partidas.add(new Partida(getJogador(idJogador)));   // Jogador inicia com esferas claras
+                    return 0;
+                }
             }
             else if (p.getJogador2().getId() == idJogador) {        // Jogador foi pre-registrado e eh o jogador 2
                 for (Partida p1 : partidas) {
@@ -135,23 +137,41 @@ public class Jogo {
     }
     
     public int ehMinhaVez(int idJogador) {
-        Partida p = getPartidaFromId(idJogador);
+        Partida p = null;
+        try {
+            p = getPartidaFromId(idJogador);
+            if (p == null) return -1;
+        } catch (Exception e) {
+        }
         return (p.ehMinhaVez(idJogador));
     }
 
     public String obtemTabuleiro(int idJogador) {
-        Partida p = getPartidaFromId(idJogador);
+        Partida p = null;
+        try {
+            p = getPartidaFromId(idJogador);
+            if (p == null) return "";
+        } catch (Exception e) {
+        }
         return p.obtemTabuleiro();
     }
         
     public int soltaEsfera(int idJogador, int orificio) {
-        Partida p = getPartidaFromId(idJogador);
+        Partida p = null;
+        try {
+            p = getPartidaFromId(idJogador);
+            if (p == null) return -1;
+        } catch (Exception e) { }
         return p.soltaEsfera(idJogador, orificio);
     }
    
     public String obtemOponente(int idJogador) {
-        Partida p = getPartidaFromId(idJogador);
-        if (p == null) return "";
+        Partida p = null;
+        try {
+            p = getPartidaFromId(idJogador);
+            if (p == null) return "";
+        } catch (Exception e) { }
+
         int idOponente = p.getIdOponente(idJogador);
         if (idOponente == -1) return "";
         return getJogador(idOponente).getNome();

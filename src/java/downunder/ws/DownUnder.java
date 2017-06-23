@@ -18,7 +18,7 @@ public class DownUnder extends UnicastRemoteObject implements DownUnderInterface
     Jogo jogo;
     
     public DownUnder() throws RemoteException, InterruptedException {
-        jogo = new Jogo(50);
+        jogo = new Jogo(500);
     }
     
     public synchronized int preRegistro(String nomeJogador1, int idJogador1, String nomeJogador2, int idJogador2) throws RemoteException {
